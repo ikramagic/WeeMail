@@ -1,0 +1,15 @@
+<div class="container">
+<%= link_to "Recevoir un email", new_email_path, data: { turbo_frame: "email-list" } %>
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Boite de récéption</h2>
+      <ul id="email-list">
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <h2>Contenu de l'email</h2>
+      <div id="selected-email">
+      </div>
+    </div>
+  </div>
+</div>
