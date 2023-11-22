@@ -1,15 +1,38 @@
 <div class="container">
-<%= link_to "Recevoir un email", new_email_path, data: { turbo_frame: "email-list" } %>
+  <%= turbo_frame_tag 'email-list' do %>
+    <%= form_with(model: Email.new, local: true) do |form| %>
+      <div class="actions">
+        <%= form.submit "Recevoir un email" %>
+      </div>
+    <% end %>
+  <% end %>
+  
   <div class="row">
     <div class="col-md-6">
-      <h2>Boite de récéption</h2>
-      <ul id="email-list">
-      </ul>
+      <h2>Liste des e-mails</h2>
+
+      <%= turbo_frame_tag 'email-list' do %>
+        <ul>
+          <% @emails.each do |email| %>
+            <li>
+              <%= link_to email.object, email_path(email), remote: true, data: { turbo_frame: "selected-email" } %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
     </div>
+
     <div class="col-md-6">
+    <%= turbo_frame_tag 'email-list' do %>
       <h2>Contenu de l'email</h2>
+      <% @emails.each do |email| %>
       <div id="selected-email">
+      <li>
+      <%= link_to email.body, email_path(email), remote: true, data: { turbo_frame: "selected-email" } %>
+      </li>
+      <% end %>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
