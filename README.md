@@ -1,6 +1,6 @@
 # WeeMail
 
-WeeMail est une (fausse)application web simple permettant de gérer une liste d'e-mails avec des fonctionnalités basiques. Ce projet a été développé dans le cadre d'un atelier pratique pour apprendre à utiliser Turbo Streams et Hotwire sur Ruby on Rails.
+WeeMail est une (fausse) application web simple permettant de gérer une liste d'e-mails avec des fonctionnalités basiques. Ce projet a été développé dans le cadre d'un atelier pratique pour apprendre à utiliser Turbo Streams et Hotwire sur Ruby on Rails.
 
 ## Fonctionnalités
 
@@ -10,6 +10,12 @@ WeeMail est une (fausse)application web simple permettant de gérer une liste d'
 - Marquage d'un e-mail comme lu/non lu avec mise à jour en temps réel (Ah oui oui oui! Et avec la voix de Julien Lepers s'il vous plait!).
 - Suppression d'un e-mail avec mise à jour en temps réel de la liste (euh, presque).
 
+## Aperçu du rendu final
+
+![Navbar](app/assets/images/weemailnavbar.png)
+![Top](app/assets/images/weemailtop.png)
+![Inbox](app/assets/images/weemailzz.png)
+![Aperçu de l'application](app/assets/images/WEEMAIL.png)
 
 ## Technologies utilisées
 
@@ -27,11 +33,4 @@ WeeMail est une (fausse)application web simple permettant de gérer une liste d'
 
 ## Licence
 
-(╯°□°）╯
-
-## Aperçu du rendu final
-
-![Aperçu de l'application](app/assets/images/WEEMAIL.png)
-![Navbar](app/assets/images/weemailnavbar.png)
-![Top](app/assets/images/weemailtop.png)
-![Inbox](app/assets/images/weemailzz.png)
+(╯°□°）╯ All yours!
