@@ -4,6 +4,7 @@
     <p><strong>Contenu :</strong></p>
     <p><%= @selected_email.body %></p>
     <%= button_to (@selected_email.read ? "Marquer comme non-lu" : "Marquer comme lu"), email_path(@selected_email), method: :put, data: { turbo_frame: "email-list" }, class: 'btn btn-warning' %>
+    <br>
     <%= button_to 'Supprimer', email_path(@selected_email), method: :delete, remote: true, data: { turbo_frame: 'email-list' }, class: 'btn btn-danger' %>
   <% else %>
     <p>Aucun e-mail sélectionné.</p>

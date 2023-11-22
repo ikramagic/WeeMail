@@ -34,7 +34,7 @@ class EmailsController < ApplicationController
   end
 
   def create
-    email = Email.create(object: Faker::Quote.famous_last_words, body: Faker::Quote.famous_last_words)
+    email = Email.create(object: Faker::Quote.famous_last_words, body: Faker::Quote.matz)
     @selected_email = email
     render turbo_stream: turbo_stream.append('email-list', partial: 'emails/email', locals: { email: email })
   end
