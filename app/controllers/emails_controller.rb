@@ -6,7 +6,18 @@ class EmailsController < ApplicationController
     @selected_email = Email.find(params[:id]) if params[:id].present?
     respond_to do |format|
       format.html
-      format.turbo_stream { @selected_email = Email.find(params[:id]) }
+      format.turbo_stream do
+        if params[:id].present?
+          @selected_email = Email.find(params[:id])
+        else
+          @selected_email = nil
+        end
+        render turbo_stream: turbo_stream.replace(
+          "selected-email",
+          partial: "emails/email",
+          locals: { email: @selected_email }
+        )
+      end
     end
   end
 
@@ -29,12 +40,14 @@ class EmailsController < ApplicationController
   end
 
   def destroy
+    @selected_email = Email.find(params[:id])
     @selected_email.destroy
     redirect_to emails_path
   end
 
-  def mark_as_unread
-    @selected_email.update(read: false)
-    redirect_to emails_path
+  def update
+    @selected_email = Email.find(params[:id])
+    @selected_email.update(read: !@selected_email.read)
+    redirect_to emails_path(id: @selected_email.id)
   end
 end

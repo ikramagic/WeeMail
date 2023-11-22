@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   resources :emails do 
     member do 
       delete :destroy
-      put :mark_as_unread
     end
   end
   root 'emails#index'

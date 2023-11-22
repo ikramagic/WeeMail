@@ -1,10 +1,9 @@
 <div id="selected-email">
   <h2>Contenu de l'e-mail</h2>
   <% if @selected_email.present? %>
-    <p><strong>Sujet:</strong> <%= @selected_email.object %></p>
-    <p><strong>Contenu:</strong></p>
+    <p><strong>Contenu :</strong></p>
     <p><%= @selected_email.body %></p>
-    <%= button_to (email.read ? "Marquer comme non-lu" : "Marquer comme lu"), email, method: :put, data: { turbo_frame: "email-list" }, class: 'btn btn-warning' %>
+    <%= button_to (@selected_email.read ? "Marquer comme non-lu" : "Marquer comme lu"), email_path(@selected_email), method: :put, data: { turbo_frame: "email-list" }, class: 'btn btn-warning' %>
     <%= button_to 'Supprimer', email_path(@selected_email), method: :delete, remote: true, data: { turbo_frame: 'email-list' }, class: 'btn btn-danger' %>
   <% else %>
     <p>Aucun e-mail sélectionné.</p>
