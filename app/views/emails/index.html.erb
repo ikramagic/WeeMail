@@ -6,16 +6,15 @@
       </div>
     <% end %>
   <% end %>
-  
+
   <div class="row">
     <div class="col-md-6">
       <h2>Liste des e-mails</h2>
-
       <%= turbo_frame_tag 'email-list' do %>
         <ul>
           <% @emails.each do |email| %>
             <li>
-              <%= link_to email.object, email_path(email), remote: true, data: { turbo_frame: "selected-email" } %>
+            <%= link_to email.object, email_path(email), remote: true, data: { turbo_frame: "selected-email", action: "replace" } %>
             </li>
           <% end %>
         </ul>
@@ -23,16 +22,10 @@
     </div>
 
     <div class="col-md-6">
-    <%= turbo_frame_tag 'email-list' do %>
-      <h2>Contenu de l'email</h2>
-      <% @emails.each do |email| %>
-      <div id="selected-email">
-      <li>
-      <%= link_to email.body, email_path(email), remote: true, data: { turbo_frame: "selected-email" } %>
-      </li>
-      <% end %>
+      <%= turbo_frame_tag 'selected-email' do %>
+        <%= render 'email' %>
       </div>
-      <% end %>
     </div>
   </div>
+  <% end %>
 </div>

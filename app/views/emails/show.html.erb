@@ -1,1 +1,3 @@
-<%= render 'email' %>
+<%= turbo_frame_tag 'selected-email' do %>
+    <%= render 'emails/email', email: @selected_email %>
+  <% end %>

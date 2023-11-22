@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :emails
+  resources :emails do 
+    member do 
+      delete :destroy
+      put :mark_as_unread
+    end
+  end
   root 'emails#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
